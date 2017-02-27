@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F3F3F</color>
+    <color name="colorPrimaryDark">#3A3A3A</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="colorTheme">#8aaae3</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorBlack">#000</color>
+
+    <!--页面背景的颜色-->
+    <color name="colorPageBg">#f2f4f5</color>
+
+    <!--水波纹或5.0以下选择器颜色-->
+    <color name="tabBackground">#777D7D7D</color>
+    <!--item的水波纹颜色-->
+    <color name="itemBackground">#DD7D7D7D</color>
+    <!--item的5.0一下版本选择器颜色-->
+    <color name="itemLowBackground">#d9d9d9</color>
+
+    <!--文本-->
+    <color name="text_black_dark">#343434</color>
+    <color name="text_black_light">#595959</color>
+    <color name="text_black_light_super">#b8b8b8</color>
+
+    <!--夜间模式-->
+    <color name="night_colorAccent">#868686</color>
+    <color name="night_Background">#3F3F3F</color>
+    <color name="night_TextColor">#ffffff</color>
+
+    <!--item的分割线-->
+    <color name="colorLineItem">#FFDDDDDD</color>
+</resources>

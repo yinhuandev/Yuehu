@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:id="@+id/top_group"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_nav_home"
+            android:title="项目主页" />
+        <item
+            android:id="@+id/nav_download"
+            android:icon="@drawable/ic_nav_download"
+            android:title="扫码下载" />
+        <item
+            android:id="@+id/nav_night"
+            android:icon="@drawable/ic_nav_night"
+            android:title="夜间模式" />
+    </group>
+
+    <group
+        android:id="@+id/bottom_group"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_support"
+            android:icon="@drawable/ic_nav_support"
+            android:title="支持开发者" />
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_nav_settings"
+            android:title="设置" />
+    </group>
+
+</menu>

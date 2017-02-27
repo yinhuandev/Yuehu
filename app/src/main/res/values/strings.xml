@@ -1,0 +1,60 @@
+<resources>
+    <string name="app_name">阅乎</string>
+
+    <string name="introduce">阅乎 是一款能帮助你每天学习知识技术的免费软件。
+        \n\n知乎日报数据缓存 50 分钟，其他模块缓存 1 天。
+        \n\n作者是一位大三的学生，非计算机专业，自学 Android 开发快两年了。最近忙于整理大学期间开发的作品，参与春季实习生招聘。等工作稳定后，会将项目开源。
+    </string>
+
+    <string name="contact_me">
+        个人博客: http://xuyinhuan.com
+        \nCSDN: http://blog.csdn.net/xyh269
+        \nEmail: yinhuandev@163.com
+    </string>
+
+    <string name="open_source_lib">
+         网络请求：com.squareup.retrofit2:retrofit:2.1.0
+        \n数据解析：com.squareup.retrofit2:converter-gson:2.1.0
+        \n数据适配：com.squareup.retrofit2:adapter-rxjava:2.1.0
+        \n异步操作：io.reactivex:rxjava:1.2.0
+        \n线程控制：io.reactivex:rxandroid:1.2.0
+        \n图片加载：com.github.bumptech.glide:glide:3.7.0
+        \n圆形图片：de.hdodenhof:circleimageview:2.1.0
+        \n对话框：com.afollestad.material-dialogs:commons:0.9.0.0
+        \n二维码：com.google.zxing:core:3.2.1
+    </string>
+
+    <string name="action_share">分享</string>
+
+    <string name="string_share_text">发现阅乎App，下载链接：https://fir.im/ukd7，大力推荐哦~</string>
+
+    <string name="open">open</string>
+    <string name="close">close</string>
+    
+    
+    <string name="yinhuan">yinhuan</string>
+    <string name="yaoyao">yaoyao</string>
+
+
+    <!--上拉加载-->
+    <string name="loading">努力加载中</string>
+    <string name="load_finish">加载完成</string>
+    <string name="no_more">没有更多数据了</string>
+
+    <string name="no_name">佚名</string>
+
+    <string name="developing">程序猿 GG 正在努力建设中</string>
+    <string name="zhihu_daily">知乎日报</string>
+    <string name="android">Android</string>
+    <string name="ios">iOS</string>
+    <string name="web">前端</string>
+    <string name="develop_res">拓展资源</string>
+
+    <string name="user_name">程序猿小 H</string>
+    <string name="home_page">项目主页</string>
+    <string name="settings">设置</string>
+    <string name="download">扫码下载</string>
+    <string name="menu_show_as">视图</string>
+    <string name="menu_show_as_entry_list">列表</string>
+    <string name="menu_show_as_entry_grid">瀑布流</string>
+</resources>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.yinhuan.yuehu">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".application.YuehuApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".ui.activity.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--Gank详情页-->
+        <activity android:name=".view.webview.WebViewActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"/>
+
+        <!--知乎日报详情页-->
+        <activity android:name=".ui.activity.DailyDetailsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"/>
+
+        <!--设置-->
+        <activity android:name=".ui.menu.SettingsActivity"
+            android:screenOrientation="portrait"/>
+
+        <!--项目主页-->
+        <activity
+            android:name=".ui.menu.HomePageActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"/>
+
+        <!--扫码下载-->
+        <activity
+            android:name=".ui.menu.DownloadActivity"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".ui.activity.WebActivity"
+            android:screenOrientation="portrait"/>
+
+    </application>
+
+
+</manifest>

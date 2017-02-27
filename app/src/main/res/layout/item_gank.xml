@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.text.TextUtils" />
+
+        <import type="com.yinhuan.yuehu.util.DateUtil" />
+
+        <variable
+            name="gankBean"
+            type="com.yinhuan.yuehu.mvp.bean.GankBean" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/ll_gank"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="vertical"
+        android:background="?attr/itemBg">
+
+        <!--标题与图片-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:lineSpacingExtra="4dp"
+                android:maxLines="2"
+                android:text="@{gankBean.desc}"
+                android:textColor="?attr/textColorDark"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/img_gank"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_avatar" />
+
+        </LinearLayout>
+
+
+        <!--来源与日期-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:paddingLeft="6dp"
+            android:paddingRight="6dp">
+
+            <TextView
+                android:id="@+id/tv_who"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{TextUtils.isEmpty(gankBean.who)?@string/no_name:gankBean.who}"
+                android:textColor="?attr/textColorLight" />
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="@{DateUtil.getTranslateTime(gankBean.publishedAt)}"
+                android:textColor="?attr/textColorLight" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginTop="6dp"
+            android:background="@color/colorLineItem" />
+    </LinearLayout>
+
+</layout>
+
