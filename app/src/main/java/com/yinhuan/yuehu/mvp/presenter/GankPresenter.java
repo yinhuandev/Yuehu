@@ -7,9 +7,9 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import com.yinhuan.yuehu.http.HttpCallBack;
 import com.yinhuan.yuehu.http.HttpResult;
 import com.yinhuan.yuehu.http.cache.ACache;
+import com.yinhuan.yuehu.mvp.contract.GankContract;
 import com.yinhuan.yuehu.mvp.bean.GankBean;
-import com.yinhuan.yuehu.mvp.model.GankModel;
-import com.yinhuan.yuehu.mvp.view.IGankView;
+import com.yinhuan.yuehu.repository.GankModel;
 import com.yinhuan.yuehu.util.CheckNetwork;
 import com.yinhuan.yuehu.util.LogUtil;
 import com.yinhuan.yuehu.view.XRecyclerView;
@@ -22,9 +22,9 @@ import rx.Subscription;
  * Created by yinhuan on 2017/2/18.
  */
 
-public class IGankPresenterImpl implements IGankPresenter {
+public class GankPresenter implements GankContract.Presenter {
 
-    private IGankView gankView;
+    private GankContract.View gankView;
 
     private GankModel gankModel;
 
@@ -35,7 +35,7 @@ public class IGankPresenterImpl implements IGankPresenter {
 
     private Context context;
 
-    public IGankPresenterImpl(IGankView gankView, Context context,String type){
+    public GankPresenter(GankContract.View gankView, Context context, String type){
         this.gankView = gankView;
         this.context = context;
         this.type = type;
@@ -50,6 +50,7 @@ public class IGankPresenterImpl implements IGankPresenter {
         gankModel.getGankData(new HttpCallBack() {
             @Override
             public void onSuccess(Object object) {
+                gankView.onShowContentView();
                 HttpResult<List<GankBean>> httpResult = (HttpResult) object;
                 if (!gankView.isSetAdapter()) {
                     if (httpResult != null && httpResult.getResults() != null && httpResult.getResults().size() > 0) {

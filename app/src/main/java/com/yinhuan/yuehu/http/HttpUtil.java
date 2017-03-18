@@ -1,9 +1,20 @@
 package com.yinhuan.yuehu.http;
 
 
+import com.google.gson.Gson;
+import com.yinhuan.yuehu.mvp.bean.GankBean;
+
+import java.io.File;
+import java.io.IOException;
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Type;
 import java.util.concurrent.TimeUnit;
 
+import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
+import retrofit2.Converter;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -85,4 +96,50 @@ public class HttpUtil {
         return mDailyClient;
     }
 
+
+
+    static class FileRequestBodyConverterFactory extends Converter.Factory{
+
+        @Override
+        public Converter<?, RequestBody> requestBodyConverter(Type type, Annotation[] parameterAnnotations, Annotation[] methodAnnotations, Retrofit retrofit) {
+            return new FileRequestBodyConverter();
+        }
+    }
+
+
+    static class FileRequestBodyConverter implements Converter<File, RequestBody>{
+
+        @Override
+        public RequestBody convert(File file) throws IOException {
+            return RequestBody.create(MediaType.parse("application/yinhuan-stream"),file);
+        }
+    }
+
+    static class ArbitraryResponseBodyConverterFactory extends Converter.Factory{
+
+        @Override
+        public Converter<ResponseBody, ?> responseBodyConverter(Type type, Annotation[] annotations, Retrofit retrofit) {
+            return super.responseBodyConverter(type, annotations, retrofit);
+        }
+    }
+
+    static class ArbitraryResponseBodyConverter implements Converter<RequestBody,HttpResult>{
+
+        @Override
+        public HttpResult convert(RequestBody value) throws IOException {
+
+            RawResult rawResult = new Gson().fromJson(value.toString(),RawResult.class);
+            HttpResult result = new HttpResult();
+
+            return null;
+        }
+    }
+
+
+
+    static class RawResult{
+        int err;
+        String content;
+        String message;
+    }
 }

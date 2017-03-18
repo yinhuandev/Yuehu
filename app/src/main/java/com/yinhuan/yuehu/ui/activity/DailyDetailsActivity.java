@@ -19,10 +19,9 @@ import android.widget.ProgressBar;
 
 import com.bumptech.glide.Glide;
 import com.yinhuan.yuehu.R;
+import com.yinhuan.yuehu.mvp.contract.DailyDetailsContract;
 import com.yinhuan.yuehu.mvp.bean.DailyDetailsBean;
-import com.yinhuan.yuehu.mvp.presenter.IDailyDetailsPresenter;
-import com.yinhuan.yuehu.mvp.presenter.IDailyDetailsPresenterImpl;
-import com.yinhuan.yuehu.mvp.view.IDailyDetailsView;
+import com.yinhuan.yuehu.mvp.presenter.DailyDetailsPresenter;
 import com.yinhuan.yuehu.util.HtmlUtil;
 
 import butterknife.BindView;
@@ -33,7 +32,7 @@ import butterknife.ButterKnife;
  * Created by yinhuan on 2017/2/8.
  */
 
-public class DailyDetailsActivity extends AppCompatActivity implements IDailyDetailsView {
+public class DailyDetailsActivity extends AppCompatActivity implements DailyDetailsContract.View {
 
     private String daily_id;
 
@@ -49,7 +48,7 @@ public class DailyDetailsActivity extends AppCompatActivity implements IDailyDet
     @BindView(R.id.toolbar)
     Toolbar toolbar;
 
-    private IDailyDetailsPresenter presenter;
+    private DailyDetailsContract.Presenter presenter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -63,7 +62,7 @@ public class DailyDetailsActivity extends AppCompatActivity implements IDailyDet
         Intent intent = getIntent();
         daily_id = intent.getStringExtra("daily_id");
         setSupportActionBar(toolbar);
-        presenter = new IDailyDetailsPresenterImpl(this);
+        presenter = new DailyDetailsPresenter(this);
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null){

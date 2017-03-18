@@ -13,10 +13,9 @@ import android.widget.TextView;
 
 
 import com.yinhuan.yuehu.R;
+import com.yinhuan.yuehu.mvp.contract.GankContract;
 import com.yinhuan.yuehu.mvp.bean.GankBean;
-import com.yinhuan.yuehu.mvp.presenter.IGankPresenter;
-import com.yinhuan.yuehu.mvp.presenter.IGankPresenterImpl;
-import com.yinhuan.yuehu.mvp.view.IGankView;
+import com.yinhuan.yuehu.mvp.presenter.GankPresenter;
 import com.yinhuan.yuehu.ui.adapter.GankAdapter;
 import com.yinhuan.yuehu.util.LogUtil;
 import com.yinhuan.yuehu.view.XRecyclerView;
@@ -31,7 +30,7 @@ import java.util.List;
  * Android 模块
  */
 
-public class GankFragment extends BaseFragment implements IGankView {
+public class GankFragment extends BaseFragment implements GankContract.View {
 
     //Gank Data
     private String type = "Android";
@@ -43,7 +42,7 @@ public class GankFragment extends BaseFragment implements IGankView {
     //是否第一次加载
     private boolean isFirst = true;
 
-    private IGankPresenter gankPresenter;
+    private GankContract.Presenter gankPresenter;
 
     public static GankFragment newInstance(String type) {
         Bundle args = new Bundle();
@@ -73,7 +72,7 @@ public class GankFragment extends BaseFragment implements IGankView {
      * 初始化参数
      */
     private void initParams() {
-        gankPresenter = new IGankPresenterImpl(this,getContext(),type);
+        gankPresenter = new GankPresenter(this,getContext(),type);
 
         //订阅上拉加载
         recyclerView.setOnLoadListener(new XRecyclerView.OnLoadListener() {
@@ -156,6 +155,9 @@ public class GankFragment extends BaseFragment implements IGankView {
     @Override
     public void onSetAdapter(List<GankBean> data) {
         LogUtil.d(TAG,"onSetAdapter");
+        if (data!= null){
+            LogUtil.d(TAG,data.size()+"");
+        }
         mAdapter = new GankAdapter(data);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(mAdapter);

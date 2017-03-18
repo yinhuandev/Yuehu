@@ -1,21 +1,25 @@
 package com.yinhuan.yuehu.ui.menu;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
+
 
 import com.yinhuan.yuehu.R;
-import com.yinhuan.yuehu.ui.activity.BaseActivity;
+import com.yinhuan.yuehu.ui.activity.ToolbarActivity;
+
+
 
 
 /**
  * Created by yinhuan on 2017/2/4.
  */
-public class SettingsActivity extends BaseActivity {
+public class SettingsActivity extends ToolbarActivity {
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
+    protected int setContentViewId() {
+        return R.layout.activity_settings;
     }
 
+    @Override
+    protected boolean canBack() {
+        return true;
+    }
 }

@@ -14,6 +14,7 @@ import com.yinhuan.yuehu.databinding.ItemGankBinding;
 import com.yinhuan.yuehu.mvp.bean.GankBean;
 import com.yinhuan.yuehu.ui.activity.WebActivity;
 import com.yinhuan.yuehu.util.ImageUtil;
+import com.yinhuan.yuehu.util.LogUtil;
 
 import java.util.List;
 
@@ -59,6 +60,7 @@ public class GankAdapter extends AnimRecyclerViewAdapter<GankAdapter.ViewHolder>
         }
 
         public void bindView(final GankBean bean, int position){
+            LogUtil.d("GankAdapter","BindView："+bean.getDesc());
             binding.setGankBean(bean);
             binding.executePendingBindings();
             if (bean.getImages() != null
@@ -79,7 +81,7 @@ public class GankAdapter extends AnimRecyclerViewAdapter<GankAdapter.ViewHolder>
                 }
             });
 
-            showItemAnim(binding.llGank, position);
+           // showItemAnim(binding.llGank, position);
 
         }
     }

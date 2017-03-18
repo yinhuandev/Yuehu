@@ -14,9 +14,7 @@ import java.util.List;
  * Created by yinhuan on 2017/1/28.
  */
 
-public class MyFragmentPagerAdapter<T extends Fragment> extends FragmentPagerAdapter {
-
-    private List<String> mTitleList;
+public class PagerAdapter<T extends Fragment> extends FragmentPagerAdapter {
 
     private DailyFragment dailyFragment;
     private GankFragment androidFragment;
@@ -24,9 +22,10 @@ public class MyFragmentPagerAdapter<T extends Fragment> extends FragmentPagerAda
     private GankFragment webFragment;
     private GankFragment resourceFragment;
 
-    public MyFragmentPagerAdapter(FragmentManager fm, List<String> mTitleList) {
+    private String[] title = {"知乎日报","Android","iOS","前端","拓展资源"};
+
+    public PagerAdapter(FragmentManager fm) {
         super(fm);
-        this.mTitleList = mTitleList;
     }
 
     @Override
@@ -64,17 +63,16 @@ public class MyFragmentPagerAdapter<T extends Fragment> extends FragmentPagerAda
 
     @Override
     public int getCount() {
-        return mTitleList.size();
+        return title.length;
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-        if (mTitleList != null){
-            return mTitleList.get(position);
+        if (title != null){
+            return title[position];
         }else {
             return "";
         }
     }
-
 
 }

@@ -14,10 +14,9 @@ import android.widget.TextView;
 
 
 import com.yinhuan.yuehu.R;
+import com.yinhuan.yuehu.mvp.contract.DailyContract;
 import com.yinhuan.yuehu.mvp.bean.DailyBean;
-import com.yinhuan.yuehu.mvp.presenter.IDailyPresenter;
-import com.yinhuan.yuehu.mvp.presenter.IDailyPresenterImpl;
-import com.yinhuan.yuehu.mvp.view.IDailyView;
+import com.yinhuan.yuehu.mvp.presenter.DailyPresenter;
 import com.yinhuan.yuehu.ui.adapter.DailyAdapter;
 
 import java.lang.reflect.Field;
@@ -30,14 +29,14 @@ import java.util.List;
  * 知乎日报 模块
  */
 
-public class DailyFragment extends BaseFragment implements IDailyView {
+public class DailyFragment extends BaseFragment implements DailyContract.View {
 
     private DailyAdapter mAdapter;
 
     //是否准备好加载数据
     private boolean isInit;
 
-    IDailyPresenter dailyPresenter;
+    DailyContract.Presenter dailyPresenter;
 
     public static DailyFragment newInstance() {
         Bundle args = new Bundle();
@@ -62,7 +61,7 @@ public class DailyFragment extends BaseFragment implements IDailyView {
     }
 
     private void initParams() {
-        dailyPresenter = new IDailyPresenterImpl(this, getContext());
+        dailyPresenter = new DailyPresenter(this, getContext());
 
         swipeRefresh.setColorSchemeResources(R.color.colorPrimary);
         swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -163,4 +162,4 @@ public class DailyFragment extends BaseFragment implements IDailyView {
         }
     }
 
-}
+    }

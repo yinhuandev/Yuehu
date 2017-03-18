@@ -4,8 +4,8 @@ package com.yinhuan.yuehu.mvp.presenter;
 
 
 import com.yinhuan.yuehu.http.HttpCallBack;
-import com.yinhuan.yuehu.mvp.model.DailyModel;
-import com.yinhuan.yuehu.mvp.view.IDailyDetailsView;
+import com.yinhuan.yuehu.mvp.contract.DailyDetailsContract;
+import com.yinhuan.yuehu.repository.DailyModel;
 
 import rx.Subscription;
 
@@ -13,13 +13,13 @@ import rx.Subscription;
  * Created by yinhuan on 2017/2/19.
  */
 
-public class IDailyDetailsPresenterImpl implements IDailyDetailsPresenter {
+public class DailyDetailsPresenter implements DailyDetailsContract.Presenter {
 
 
-    private IDailyDetailsView dailyDetailsView;
+    private DailyDetailsContract.View dailyDetailsView;
     private DailyModel model;
 
-    public IDailyDetailsPresenterImpl(IDailyDetailsView dailyDetailsView){
+    public DailyDetailsPresenter(DailyDetailsContract.View dailyDetailsView){
         this.dailyDetailsView = dailyDetailsView;
         model = new DailyModel();
     }

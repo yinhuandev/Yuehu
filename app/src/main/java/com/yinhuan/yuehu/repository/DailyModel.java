@@ -1,4 +1,4 @@
-package com.yinhuan.yuehu.mvp.model;
+package com.yinhuan.yuehu.repository;
 
 
 

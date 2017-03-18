@@ -32,6 +32,7 @@ public abstract class ToolbarActivity extends BaseActivity {
 
         mAppBar = (AppBarLayout) findViewById(R.id.app_bar_layout);
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
+
         if (mAppBar == null || mToolbar == null) {
             throw new IllegalStateException(
                     "The subclass of ToolbarActivity must contain a toolbar.");

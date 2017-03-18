@@ -25,35 +25,35 @@ import com.yinhuan.yuehu.R;
 import com.yinhuan.yuehu.http.rx.RxBus;
 import com.yinhuan.yuehu.http.rx.RxBusCode;
 import com.yinhuan.yuehu.http.rx.ThemeEvent;
-import com.yinhuan.yuehu.ui.adapter.MyFragmentPagerAdapter;
+import com.yinhuan.yuehu.mvp.contract.MainContract;
+import com.yinhuan.yuehu.mvp.presenter.MainPresenter;
+import com.yinhuan.yuehu.ui.adapter.PagerAdapter;
 import com.yinhuan.yuehu.ui.menu.DownloadActivity;
 import com.yinhuan.yuehu.ui.menu.HomePageActivity;
 import com.yinhuan.yuehu.ui.menu.SettingsActivity;
-import com.yinhuan.yuehu.util.NightModeHelper;
 import com.yinhuan.yuehu.util.PreferencesUtility;
 import com.yinhuan.yuehu.util.Toasts;
-
-import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends ToolbarActivity {
+public class MainActivity extends ToolbarActivity implements MainContract.View{
 
     @BindView(R.id.tab_layout)
     TabLayout tabLayout;
     @BindView(R.id.view_pager)
     ViewPager viewPager;
 
+
     @BindView(R.id.drawer_layout)
     DrawerLayout drawerLayout;
     @BindView(R.id.nav_view)
     NavigationView navView;
 
-    private ArrayList<String> mTitles = new ArrayList<>(5);
-
     //夜间模式
     private PreferencesUtility mPreferences;
+
+    MainContract.Presenter presenter;
 
     @Override
     protected int setContentViewId() {
@@ -68,6 +68,7 @@ public class MainActivity extends ToolbarActivity {
         initView();
         initDrawerLayout();
         initFragment();
+
     }
 
     /**
@@ -86,6 +87,8 @@ public class MainActivity extends ToolbarActivity {
      * 初始化 View
      */
     private void initView() {
+        presenter = new MainPresenter();
+
         mPreferences = PreferencesUtility.getInstance(this);
 
         tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
@@ -93,12 +96,7 @@ public class MainActivity extends ToolbarActivity {
     }
 
     private void initFragment() {
-        mTitles.add(getString(R.string.zhihu_daily));
-        mTitles.add(getString(R.string.android));
-        mTitles.add(getString(R.string.ios));
-        mTitles.add(getString(R.string.web));
-        mTitles.add(getString(R.string.develop_res));
-        MyFragmentPagerAdapter<Fragment> mAdapter = new MyFragmentPagerAdapter<>(getSupportFragmentManager(), mTitles);
+        PagerAdapter<Fragment> mAdapter = new PagerAdapter<>(getSupportFragmentManager());
         viewPager.setAdapter(mAdapter);
         viewPager.setOffscreenPageLimit(4);
         viewPager.setCurrentItem(0);

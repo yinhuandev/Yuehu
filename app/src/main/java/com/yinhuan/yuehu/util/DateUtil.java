@@ -21,7 +21,6 @@ public class DateUtil {
      * @return
      */
     public static String getTranslateTime(String time) {
-
         SimpleDateFormat sdf1 = new SimpleDateFormat(part_1);
         // 在主页面中设置当天时间
         Date nowTime = new Date();

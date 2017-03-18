@@ -3,7 +3,6 @@ package com.yinhuan.yuehu.application;
 /**
  * Created by yinhuan on 2017/1/31.
  */
-
 public class Constants {
 
     //干货集中营Api

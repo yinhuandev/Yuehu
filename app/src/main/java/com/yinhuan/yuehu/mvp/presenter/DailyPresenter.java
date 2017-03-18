@@ -6,9 +6,9 @@ import android.support.v4.widget.SwipeRefreshLayout;
 
 import com.yinhuan.yuehu.http.HttpCallBack;
 import com.yinhuan.yuehu.http.cache.ACache;
+import com.yinhuan.yuehu.mvp.contract.DailyContract;
 import com.yinhuan.yuehu.mvp.bean.DailyBean;
-import com.yinhuan.yuehu.mvp.model.DailyModel;
-import com.yinhuan.yuehu.mvp.view.IDailyView;
+import com.yinhuan.yuehu.repository.DailyModel;
 import com.yinhuan.yuehu.util.CheckNetwork;
 
 import rx.Subscription;
@@ -18,19 +18,19 @@ import rx.Subscription;
  * Created by yinhuan on 2017/2/18.
  */
 
-public class IDailyPresenterImpl implements IDailyPresenter {
+public class DailyPresenter implements DailyContract.Presenter {
 
     static final String key = "daily";
 
     private DailyModel dailyModel;
 
-    private IDailyView dailyView;
+    private DailyContract.View dailyView;
 
     private Context context;
 
     private ACache mACache;
 
-    public IDailyPresenterImpl(IDailyView dailyView, Context context){
+    public DailyPresenter(DailyContract.View dailyView, Context context){
         this.dailyView = dailyView;
         this.context = context;
 

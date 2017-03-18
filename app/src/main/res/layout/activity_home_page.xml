@@ -27,8 +27,7 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/homepage_header"
                 android:fitsSystemWindows="true"
-                android:scaleType="fitXY"
-                android:visibility="visible" />
+                android:scaleType="centerCrop" />
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"

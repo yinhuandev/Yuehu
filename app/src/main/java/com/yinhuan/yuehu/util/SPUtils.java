@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 
-import com.yinhuan.yuehu.application.YuehuApplication;
+import com.yinhuan.yuehu.application.App;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +21,7 @@ public class SPUtils {
      * @param fileName
      */
     private static SharedPreferences getSharedPreference(String fileName) {
-        return YuehuApplication.getContext().getSharedPreferences(fileName, Context.MODE_PRIVATE);
+        return App.getContext().getSharedPreferences(fileName, Context.MODE_PRIVATE);
     }
 
     /**
