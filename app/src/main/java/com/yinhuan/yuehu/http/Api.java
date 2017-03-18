@@ -16,7 +16,7 @@ import rx.Observable;
  * Retrofit 网络请求客户端
  */
 
-public interface RetrofitHttpClient {
+public interface Api {
 
 
 

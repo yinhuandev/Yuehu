@@ -130,7 +130,7 @@ public class MainActivity extends ToolbarActivity implements MainContract.View{
                         drawerLayout.postDelayed(new Runnable() {
                             @Override
                             public void run() {
-                                DownloadActivity.start(MainActivity.this);
+                                DownloadActivity.startAct(MainActivity.this);
                             }
                         }, 360);
                         break;
@@ -139,10 +139,6 @@ public class MainActivity extends ToolbarActivity implements MainContract.View{
                         showAnim();
                         transformTheme();
                         setNightUI();
-                        break;
-                    case R.id.nav_support:
-                        drawerLayout.closeDrawers();
-                        //support
                         break;
                     case R.id.nav_settings:
                         drawerLayout.closeDrawers();

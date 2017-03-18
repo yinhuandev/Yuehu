@@ -1,14 +1,14 @@
 <resources>
 
     <style name="BaseAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-
-    </style>
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="BaseAppTheme">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="BaseAppTheme">
+        <!-- Customize your theme here. -->
         <item name="itemBg">@drawable/md_btn_selector_ripple</item>
         <item name="textColorDark">@color/text_black_dark</item>
         <item name="textColorLight">@color/text_black_light</item>

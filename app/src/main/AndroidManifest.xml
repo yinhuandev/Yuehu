@@ -27,17 +27,16 @@
         <!--知乎日报详情页-->
         <activity android:name=".ui.activity.DailyDetailsActivity"
             android:screenOrientation="portrait"
-            />
+            android:theme="@style/DetailsTheme"/>
 
         <!--设置-->
-        <activity android:name=".ui.menu.SettingsActivity"
-            />
+        <activity android:name=".ui.menu.SettingsActivity" />
 
         <!--项目主页-->
         <activity
             android:name=".ui.menu.HomePageActivity"
             android:screenOrientation="portrait"
-            />
+            android:theme="@style/DetailsTheme"/>
 
         <!--扫码下载-->
         <activity

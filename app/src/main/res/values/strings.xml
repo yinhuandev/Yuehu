@@ -1,9 +1,8 @@
 <resources>
     <string name="app_name">阅乎</string>
 
-    <string name="introduce">阅乎 是一款能帮助你每天学习知识技术的免费软件。
+    <string name="introduce">阅乎 是一款能帮助你每天学习知识技术的App。
         \n\n知乎日报数据缓存 50 分钟，其他模块缓存 1 天。
-        \n\n作者是一位大三的学生，非计算机专业，自学 Android 开发快两年了。最近忙于整理大学期间开发的作品，参与春季实习生招聘。等工作稳定后，会将项目开源。
     </string>
 
     <string name="contact_me">

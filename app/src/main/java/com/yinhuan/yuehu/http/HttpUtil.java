@@ -2,7 +2,6 @@ package com.yinhuan.yuehu.http;
 
 
 import com.google.gson.Gson;
-import com.yinhuan.yuehu.mvp.bean.GankBean;
 
 import java.io.File;
 import java.io.IOException;
@@ -35,8 +34,8 @@ public class HttpUtil {
 
     private static final int DEFAULT_TIMEOUT = 5;
 
-    private static RetrofitHttpClient mGankClient;
-    private static RetrofitHttpClient mDailyClient;
+    private static Api mGankClient;
+    private static Api mDailyClient;
 
     /**
      * 封闭构造函数
@@ -58,7 +57,7 @@ public class HttpUtil {
      * Gank
      * @return
      */
-    public RetrofitHttpClient getGankServer(){
+    public Api getGankServer(){
         if (mGankClient == null){
             //手动创建一个OkHttpClient并设置超时时间
             OkHttpClient.Builder httpClientBuilder = new OkHttpClient.Builder();
@@ -70,7 +69,7 @@ public class HttpUtil {
                     .addConverterFactory(GsonConverterFactory.create())
                     .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                     .build();
-            mGankClient = retrofit.create(RetrofitHttpClient.class);
+            mGankClient = retrofit.create(Api.class);
         }
         return mGankClient;
     }
@@ -80,7 +79,7 @@ public class HttpUtil {
      * Zhihu Daily
      * @return
      */
-    public RetrofitHttpClient getDailyServer(){
+    public Api getDailyServer(){
         if (mDailyClient == null){
             OkHttpClient.Builder builder = new OkHttpClient.Builder();
             builder.connectTimeout(DEFAULT_TIMEOUT,TimeUnit.SECONDS);
@@ -91,7 +90,7 @@ public class HttpUtil {
                     .addConverterFactory(GsonConverterFactory.create())
                     .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                     .build();
-            mDailyClient = retrofit.create(RetrofitHttpClient.class);
+            mDailyClient = retrofit.create(Api.class);
         }
         return mDailyClient;
     }

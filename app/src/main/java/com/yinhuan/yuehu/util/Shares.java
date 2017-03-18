@@ -7,7 +7,7 @@ import android.net.Uri;
 import com.yinhuan.yuehu.R;
 
 
-public class ShareUtils {
+public class Shares {
 
     public static void share(Context context, int stringRes) {
         share(context, context.getString(stringRes));

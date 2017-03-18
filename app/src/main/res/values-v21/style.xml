@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="BaseAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-    </style>
-
-    <style name="DailyDetailsTheme" parent="AppTheme">
+    <style name="DetailsTheme" parent="BaseAppTheme">
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 </resources>
